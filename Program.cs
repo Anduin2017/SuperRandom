@@ -8,7 +8,7 @@ namespace TestRan
     {
         static void Main(string[] args)
         {
-            const int counts = 1003;
+            const int counts = 15;
             var array = new int[counts];
             foreach (var rand in GetRandomNumbers(counts))
             {
@@ -59,19 +59,15 @@ namespace TestRan
             return (d * e) % ((p - 1) * (q - 1)) == 1;
         }
 
-        public static bool CanBreak(int input, out int left, out int right)
-        {
-            (left, right) = BreakNumber(input);
-            return (left, right) != (-1, -1);
-        }
-
-        public static (int, int) BreakNumber(int x)
+        public static bool TryBreakNumber(int x, out int left, out int right)
         {
             if (IsPrime(x))
             {
-                return (-1, -1);
+                left = right = -1;
+                return false;
             }
             var testMax = x / 2 + 1;
+#warning Not be best practice!
             foreach (var leftPrime in GetPrimeNumbers())
             {
                 if (leftPrime > testMax) break;
@@ -79,18 +75,25 @@ namespace TestRan
                 {
                     if (rightPrime > testMax) break;
                     else if (leftPrime * rightPrime > x) break;
-                    else if (leftPrime * rightPrime == x) return (leftPrime, rightPrime);
+                    else if (leftPrime * rightPrime == x)
+                    {
+                        left = leftPrime;
+                        right = rightPrime;
+                        return true;
+                    }
                     else continue;
                 }
             }
-            return (-1, -1);
+            left = right = -1;
+            return false;
         }
 
         public static bool HaveValidE(int d, int p, int q, out int e)
         {
             foreach (var naturalNumber in GetNaturalNumbers())
             {
-                if (naturalNumber > d * ((p - 1) * (q - 1)))
+#warning Not be best practice!
+                if (naturalNumber > d * (p - 1) * (q - 1))
                 {
                     break;
                 }
@@ -122,7 +125,7 @@ namespace TestRan
             {
                 throw new InvalidOperationException("Can't input prime!");
             }
-            if (!CanBreak(n, out int p, out int q))
+            if (!TryBreakNumber(n, out int p, out int q))
             {
                 throw new InvalidOperationException("Can't break to primes!");
             }
