@@ -8,7 +8,7 @@ namespace TestRan
     {
         static void Main(string[] args)
         {
-            const int counts = 15;
+            const int counts = 1003;
             var array = new int[counts];
             foreach (var rand in GetRandomNumbers(counts))
             {
