@@ -8,35 +8,33 @@ namespace TestRan
     {
         static void Main(string[] args)
         {
-            //foreach (var number in GetNaturalNumbers().Take(100))
-            //{
-            //    if (TryBreakNumber(number, out int left, out int right))
-            //    {
-            //        Console.WriteLine($"{number}={left}*{right}");
-            //    }
-            //}
-
-            //const int counts = int.MaxValue - 4;
-            const int counts = 1003;
-            var array = new int[counts];
-            foreach (var rand in GetRandomNumbers(counts))
+            while (true)
             {
-                Console.WriteLine("Got random number: " + rand);
-                array[rand] += 1;
-            }
-            foreach (var bit in array.Skip(2))
-            {
-                if (bit != 1)
+                Console.WriteLine("How many unique random numbers do you want?");
+                if (!ulong.TryParse(Console.ReadLine(), out ulong counts))
                 {
-                    Console.WriteLine("Bit not set! Wrong code!");
+                    break;
+                }
+                var array = new ulong[counts];
+                foreach (var rand in GetRandomNumbers(counts))
+                {
+                    Console.WriteLine("Got random number: " + rand);
+                    array[rand] += 1;
+                }
+                foreach (var bit in array.Skip(2))
+                {
+                    if (bit != 1)
+                    {
+                        Console.WriteLine("Bit not set! Wrong code!");
+                    }
                 }
             }
         }
 
-        public static bool IsPrime(int input)
+        public static bool IsPrime(ulong input)
         {
             var testSize = Math.Sqrt(input);
-            for (int i = 2; i <= testSize; i++)
+            for (ulong i = 2; i <= testSize; i++)
             {
                 if (input % i == 0)
                     return false;
@@ -44,10 +42,10 @@ namespace TestRan
             return true;
         }
 
-        public static IEnumerable<int> GetPrimeNumbers()
+        public static IEnumerable<ulong> PrimeNumbers()
         {
             yield return 2;
-            for (int i = 3; true; i += 2)
+            for (ulong i = 3; true; i += 2)
             {
                 if (IsPrime(i))
                 {
@@ -56,44 +54,20 @@ namespace TestRan
             }
         }
 
-        public static IEnumerable<int> GetNaturalNumbers()
+        public static IEnumerable<ulong> GetNaturalNumbers()
         {
-            for (int i = 0; true; i++)
+            for (ulong i = 0; true; i++)
             {
                 yield return i;
             }
         }
 
-        public static bool IsValidE(int d, int e, int p, int q)
+        public static bool IsValidE(ulong d, ulong e, ulong p, ulong q)
         {
             return (d * e) % ((p - 1) * (q - 1)) == 1;
         }
 
-        public static bool TryBreakNumber(int x, out int left, out int right)
-        {
-            if (IsPrime(x))
-            {
-                left = right = -1;
-                return false;
-            }
-            var testMax = Math.Sqrt(x);
-            foreach (var leftPrime in GetPrimeNumbers())
-            {
-                if (leftPrime > testMax) break;
-                var rightPrime = x / leftPrime;
-                if (leftPrime * rightPrime == x && IsPrime(rightPrime))
-                {
-                    left = leftPrime;
-                    right = rightPrime;
-                    return true;
-                }
-                else continue;
-            }
-            left = right = -1;
-            return false;
-        }
-
-        public static bool HaveValidE(int d, int p, int q, out int e)
+        public static bool HaveValidE(ulong d, ulong p, ulong q, out ulong e)
         {
             foreach (var naturalNumber in GetNaturalNumbers())
             {
@@ -108,15 +82,39 @@ namespace TestRan
                     return true;
                 }
             }
-            e = -1;
+            e = 0;
             return false;
         }
 
-        public static (int d, int e) GetDAndE(int p, int q)
+        public static bool TryBreakNumber(ulong x, out ulong left, out ulong right)
         {
-            foreach (int d in GetPrimeNumbers())
+            if (IsPrime(x))
             {
-                if (HaveValidE(d, p, q, out int e))
+                left = right = 0;
+                return false;
+            }
+            var testMax = Math.Sqrt(x);
+            foreach (var leftPrime in PrimeNumbers())
+            {
+                if (leftPrime > testMax) break;
+                var rightPrime = x / leftPrime;
+                if (leftPrime * rightPrime == x && IsPrime(rightPrime))
+                {
+                    left = leftPrime;
+                    right = rightPrime;
+                    return true;
+                }
+                else continue;
+            }
+            left = right = 0;
+            return false;
+        }
+
+        public static (ulong d, ulong e) GetDAndE(ulong p, ulong q)
+        {
+            foreach (ulong d in PrimeNumbers())
+            {
+                if (HaveValidE(d, p, q, out ulong e))
                 {
                     return (d, e);
                 }
@@ -124,24 +122,44 @@ namespace TestRan
             throw new InvalidOperationException("WTF!");
         }
 
-        public static IEnumerable<int> GetRandomNumbers(int n)
+        public static IEnumerable<ulong> GetRandomNumbers(ulong max)
         {
+            ulong n, d;
+            for (n = max + 2; !TryGetRSAParameters(n, out ulong p, out ulong q, out d, out ulong e); n++)
+            {
+            }
+            return GetRandomNumbersRaw(n, d)
+                .Select(t => t - 2)
+                .Where(t => t < max);
+        }
+
+        public static bool TryGetRSAParameters(ulong n, out ulong p, out ulong q, out ulong d, out ulong e)
+        {
+            p = 0;
+            q = 0;
+            d = 0;
+            e = 0;
             if (IsPrime(n))
             {
-                throw new InvalidOperationException("Can't input prime!");
+                return false;
             }
-            if (!TryBreakNumber(n, out int p, out int q))
+            if (!TryBreakNumber(n, out p, out q))
             {
-                throw new InvalidOperationException("Can't break to primes!");
+                return false;
             }
             if (p == q)
             {
-                throw new InvalidOperationException("Can't break to two same primes!");
+                return false;
             }
-            var (d, e) = GetDAndE(p, q);
-            for (int i = 2; i < n; i++)
+            (d, e) = GetDAndE(p, q);
+            return true;
+        }
+
+        public static IEnumerable<ulong> GetRandomNumbersRaw(ulong n, ulong d)
+        {
+            for (ulong i = 2; i < n; i++)
             {
-                yield return (int)(Math.Pow(i, d) % n);
+                yield return (ulong)(Math.Pow(i, d) % n);
             }
         }
     }
