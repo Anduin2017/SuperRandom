@@ -13,13 +13,13 @@ SuperRandom的时间复杂度是`O(n)`。仅和需要的随机数数量呈线性
 ## 用法
 
 ```csharp
-foreach (var rand in GetRandomNumbers(1000000).Take(100))
+foreach (var rand in GetRandomNumbers(1000000))
 {
   Console.WriteLine("Got random number: " + rand);
 }
 ```
 
-## 输出示例
+## 运行示例
 
 以输入`15`为例，生成15以内的不重复随机数。
 
