@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq;
 
-namespace SuperRandom.Test
+namespace Anduin.SuperRandom.Test
 {
     class Program
     {

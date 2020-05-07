@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30011.22
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SuperRandom", "src\SuperRandom\SuperRandom.csproj", "{18D9F5ED-D36F-46DD-BBB8-D5A12FAEF38E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Anduin.SuperRandom", "src\SuperRandom\Anduin.SuperRandom.csproj", "{18D9F5ED-D36F-46DD-BBB8-D5A12FAEF38E}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SuperRandom.Test", "src\SuperRandom.Test\SuperRandom.Test.csproj", "{ACAD57D3-326C-4544-A769-A25D6B4D6207}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Anduin.SuperRandom.Test", "src\SuperRandom.Test\Anduin.SuperRandom.Test.csproj", "{ACAD57D3-326C-4544-A769-A25D6B4D6207}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -6,7 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\SuperRandom\SuperRandom.csproj" />
+    <ProjectReference Include="..\SuperRandom\Anduin.SuperRandom.csproj" />
   </ItemGroup>
 
 </Project>
