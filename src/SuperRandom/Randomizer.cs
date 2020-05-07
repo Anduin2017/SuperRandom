@@ -3,40 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Numerics;
 
-namespace TestRan
+namespace SuperRandom
 {
-    class Program
+    public class Randomizer
     {
-        static void Main(string[] args)
-        {
-            while (true)
-            {
-                Console.WriteLine("How many unique random numbers do you want?");
-                if (!int.TryParse(Console.ReadLine(), out int counts))
-                {
-                    break;
-                }
-                var array = new int[counts];
-                foreach (var rand in GetRandomNumbers(counts))
-                {
-                    Console.WriteLine("Got random number: " + rand);
-                    array[rand] += 1;
-                }
-                foreach (var bit in array.Skip(2))
-                {
-                    if (bit > 1)
-                    {
-                        Console.WriteLine("Bit set twice! Wrong code!");
-                    }
-                    if (bit < 1)
-                    {
-                        Console.WriteLine("Bit not set! Wrong code!");
-                    }
-                }
-            }
-        }
-
-        public static bool IsPrime(int input)
+        public bool IsPrime(int input)
         {
             var testSize = Math.Sqrt(input);
             for (int i = 2; i <= testSize; i++)
@@ -47,7 +18,7 @@ namespace TestRan
             return true;
         }
 
-        public static IEnumerable<int> PrimeNumbers()
+        public IEnumerable<int> PrimeNumbers()
         {
             yield return 2;
             for (int i = 3; true; i += 2)
@@ -59,7 +30,7 @@ namespace TestRan
             }
         }
 
-        public static IEnumerable<int> GetNaturalNumbers()
+        public IEnumerable<int> GetNaturalNumbers()
         {
             for (int i = 0; true; i++)
             {
@@ -67,16 +38,15 @@ namespace TestRan
             }
         }
 
-        public static bool IsValidE(int d, int e, int p, int q)
+        public bool IsValidE(int d, int e, int p, int q)
         {
             return (d * e) % ((p - 1) * (q - 1)) == 1;
         }
 
-        public static bool HaveValidE(int d, int p, int q, out int e)
+        public bool HaveValidE(int d, int p, int q, out int e)
         {
             foreach (var naturalNumber in GetNaturalNumbers())
             {
-#warning Not be best practice!
                 if (naturalNumber > d * (p - 1) * (q - 1))
                 {
                     break;
@@ -91,7 +61,7 @@ namespace TestRan
             return false;
         }
 
-        public static bool TryBreakNumber(int x, out int left, out int right)
+        public bool TryBreakNumber(int x, out int left, out int right)
         {
             if (IsPrime(x))
             {
@@ -115,7 +85,7 @@ namespace TestRan
             return false;
         }
 
-        public static (int d, int e) GetDAndE(int p, int q)
+        public (int d, int e) GetDAndE(int p, int q)
         {
             foreach (int d in PrimeNumbers())
             {
@@ -127,7 +97,7 @@ namespace TestRan
             throw new InvalidOperationException("WTF!");
         }
 
-        public static IEnumerable<int> GetRandomNumbers(int max)
+        public IEnumerable<int> GetRandomNumbers(int max)
         {
             int n, d;
             for (n = max + 2; !TryGetRSAParameters(n, out int p, out int q, out d, out int e); n++)
@@ -138,7 +108,7 @@ namespace TestRan
                 .Where(t => t < max);
         }
 
-        public static bool TryGetRSAParameters(int n, out int p, out int q, out int d, out int e)
+        public bool TryGetRSAParameters(int n, out int p, out int q, out int d, out int e)
         {
             p = 0;
             q = 0;
