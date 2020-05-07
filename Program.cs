@@ -8,6 +8,15 @@ namespace TestRan
     {
         static void Main(string[] args)
         {
+            //foreach (var number in GetNaturalNumbers().Take(100))
+            //{
+            //    if (TryBreakNumber(number, out int left, out int right))
+            //    {
+            //        Console.WriteLine($"{number}={left}*{right}");
+            //    }
+            //}
+
+            //const int counts = int.MaxValue - 4;
             const int counts = 1003;
             var array = new int[counts];
             foreach (var rand in GetRandomNumbers(counts))
@@ -37,7 +46,8 @@ namespace TestRan
 
         public static IEnumerable<int> GetPrimeNumbers()
         {
-            for (int i = 2; true; i++)
+            yield return 2;
+            for (int i = 3; true; i += 2)
             {
                 if (IsPrime(i))
                 {
@@ -66,23 +76,18 @@ namespace TestRan
                 left = right = -1;
                 return false;
             }
-            var testMax = x / 2 + 1;
-#warning Not be best practice!
+            var testMax = Math.Sqrt(x);
             foreach (var leftPrime in GetPrimeNumbers())
             {
                 if (leftPrime > testMax) break;
-                foreach (var rightPrime in GetPrimeNumbers())
+                var rightPrime = x / leftPrime;
+                if (leftPrime * rightPrime == x && IsPrime(rightPrime))
                 {
-                    if (rightPrime > testMax) break;
-                    else if (leftPrime * rightPrime > x) break;
-                    else if (leftPrime * rightPrime == x)
-                    {
-                        left = leftPrime;
-                        right = rightPrime;
-                        return true;
-                    }
-                    else continue;
+                    left = leftPrime;
+                    right = rightPrime;
+                    return true;
                 }
+                else continue;
             }
             left = right = -1;
             return false;
