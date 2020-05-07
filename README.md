@@ -1,6 +1,24 @@
 # SuperRandom
 
+[![NuGet version (Newtonsoft.Json)](https://img.shields.io/nuget/v/Anduin.SuperRandom.svg?style=flat-square)](https://www.nuget.org/packages/Anduin.SuperRandom/)
+
 不重复随机数。
+
+## 如何安装
+
+基于.NET Standard 2.1构建。
+
+Powershell:
+
+```powershell
+PM > Install-Package Anduin.SuperRandom
+```
+
+Others:
+
+```bash
+$ > dotnet add package Anduin.SuperRandom
+```
 
 ## 为什么需要这个库？
 
@@ -13,7 +31,9 @@ SuperRandom的时间复杂度是`O(n)`。仅和需要的随机数数量呈线性
 ## 用法
 
 ```csharp
-foreach (var rand in GetRandomNumbers(1000000))
+using Anduin.SuperRandom;
+
+foreach (var rand in new Randomizer().GetRandomNumbers(1000000))
 {
   Console.WriteLine("Got random number: " + rand);
 }
