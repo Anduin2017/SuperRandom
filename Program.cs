@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Numerics;
 
 namespace TestRan
 {
@@ -11,11 +12,11 @@ namespace TestRan
             while (true)
             {
                 Console.WriteLine("How many unique random numbers do you want?");
-                if (!ulong.TryParse(Console.ReadLine(), out ulong counts))
+                if (!int.TryParse(Console.ReadLine(), out int counts))
                 {
                     break;
                 }
-                var array = new ulong[counts];
+                var array = new int[counts];
                 foreach (var rand in GetRandomNumbers(counts))
                 {
                     Console.WriteLine("Got random number: " + rand);
@@ -23,7 +24,11 @@ namespace TestRan
                 }
                 foreach (var bit in array.Skip(2))
                 {
-                    if (bit != 1)
+                    if (bit > 1)
+                    {
+                        Console.WriteLine("Bit set twice! Wrong code!");
+                    }
+                    if (bit < 1)
                     {
                         Console.WriteLine("Bit not set! Wrong code!");
                     }
@@ -31,10 +36,10 @@ namespace TestRan
             }
         }
 
-        public static bool IsPrime(ulong input)
+        public static bool IsPrime(int input)
         {
             var testSize = Math.Sqrt(input);
-            for (ulong i = 2; i <= testSize; i++)
+            for (int i = 2; i <= testSize; i++)
             {
                 if (input % i == 0)
                     return false;
@@ -42,10 +47,10 @@ namespace TestRan
             return true;
         }
 
-        public static IEnumerable<ulong> PrimeNumbers()
+        public static IEnumerable<int> PrimeNumbers()
         {
             yield return 2;
-            for (ulong i = 3; true; i += 2)
+            for (int i = 3; true; i += 2)
             {
                 if (IsPrime(i))
                 {
@@ -54,20 +59,20 @@ namespace TestRan
             }
         }
 
-        public static IEnumerable<ulong> GetNaturalNumbers()
+        public static IEnumerable<int> GetNaturalNumbers()
         {
-            for (ulong i = 0; true; i++)
+            for (int i = 0; true; i++)
             {
                 yield return i;
             }
         }
 
-        public static bool IsValidE(ulong d, ulong e, ulong p, ulong q)
+        public static bool IsValidE(int d, int e, int p, int q)
         {
             return (d * e) % ((p - 1) * (q - 1)) == 1;
         }
 
-        public static bool HaveValidE(ulong d, ulong p, ulong q, out ulong e)
+        public static bool HaveValidE(int d, int p, int q, out int e)
         {
             foreach (var naturalNumber in GetNaturalNumbers())
             {
@@ -86,7 +91,7 @@ namespace TestRan
             return false;
         }
 
-        public static bool TryBreakNumber(ulong x, out ulong left, out ulong right)
+        public static bool TryBreakNumber(int x, out int left, out int right)
         {
             if (IsPrime(x))
             {
@@ -110,11 +115,11 @@ namespace TestRan
             return false;
         }
 
-        public static (ulong d, ulong e) GetDAndE(ulong p, ulong q)
+        public static (int d, int e) GetDAndE(int p, int q)
         {
-            foreach (ulong d in PrimeNumbers())
+            foreach (int d in PrimeNumbers())
             {
-                if (HaveValidE(d, p, q, out ulong e))
+                if (HaveValidE(d, p, q, out int e))
                 {
                     return (d, e);
                 }
@@ -122,10 +127,10 @@ namespace TestRan
             throw new InvalidOperationException("WTF!");
         }
 
-        public static IEnumerable<ulong> GetRandomNumbers(ulong max)
+        public static IEnumerable<int> GetRandomNumbers(int max)
         {
-            ulong n, d;
-            for (n = max + 2; !TryGetRSAParameters(n, out ulong p, out ulong q, out d, out ulong e); n++)
+            int n, d;
+            for (n = max + 2; !TryGetRSAParameters(n, out int p, out int q, out d, out int e); n++)
             {
             }
             return GetRandomNumbersRaw(n, d)
@@ -133,7 +138,7 @@ namespace TestRan
                 .Where(t => t < max);
         }
 
-        public static bool TryGetRSAParameters(ulong n, out ulong p, out ulong q, out ulong d, out ulong e)
+        public static bool TryGetRSAParameters(int n, out int p, out int q, out int d, out int e)
         {
             p = 0;
             q = 0;
@@ -155,11 +160,12 @@ namespace TestRan
             return true;
         }
 
-        public static IEnumerable<ulong> GetRandomNumbersRaw(ulong n, ulong d)
+        public static IEnumerable<int> GetRandomNumbersRaw(int n, int d)
         {
-            for (ulong i = 2; i < n; i++)
+            for (int i = 2; i < n; i++)
             {
-                yield return (ulong)(Math.Pow(i, d) % n);
+                var mod = BigInteger.ModPow(BigInteger.Pow(i, d), 1, n);
+                yield return (int)mod;
             }
         }
     }
