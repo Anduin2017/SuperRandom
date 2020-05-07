@@ -76,7 +76,7 @@ Note: Not recommended for use in lottery tickets, verification codes, etc. The r
 
 ## What it does
 
-`` `text
+```text
 N is a positive integer.
 Let a positive integer A be distributed in the set [2, (N-1)]
 C = (A ^ D) mod N
