@@ -2,6 +2,14 @@
 
 不重复随机数。
 
+## 为什么需要这个库？
+
+传统随机数方法无法保证得到的数不重复。因此，大部分情况下的解决方案，都是每生成一个随机数，都在数据库中进行比较，如果已经存在，则抛弃这个数。
+
+但是上述的传统方法的时间复杂是`O(n^2)`。尤其是较大的数据的情况下，生成到后面会越来越慢。
+
+SuperRandom的时间复杂度是`O(n)`。仅和需要的随机数数量呈线性关系，不需要和任何数据集合进行比较。因此性能飞快。
+
 ## 用法
 
 ```csharp
@@ -11,13 +19,27 @@ foreach (var rand in GetRandomNumbers(1000000).Take(100))
 }
 ```
 
-## 为什么需要这个库？
+## 输出示例
 
-传统随机数方法无法保证得到的数不重复。因此，大部分情况下的解决方案，都是每生成一个随机数，都在数据库中进行比较，如果已经存在，则抛弃这个数。
+以输入`15`为例，生成15以内的不重复随机数。
 
-但是上述的传统方法的时间复杂是`O(n^2)`。尤其是较大的数据的情况下，生成到后面会越来越慢。
-
-SuperRandom的时间复杂度是`O(n)`。仅和需要的随机数数量呈线性关系，不需要和任何数据集合进行比较。因此性能飞快。
+```
+Got random number: 9
+Got random number: 10
+Got random number: 14
+Got random number: 4
+Got random number: 5
+Got random number: 6
+Got random number: 0
+Got random number: 1
+Got random number: 11
+Got random number: 12
+Got random number: 13
+Got random number: 2
+Got random number: 3
+Got random number: 7
+Got random number: 8
+```
 
 ## 它的原理是什么？
 
