@@ -20,7 +20,7 @@ namespace Anduin.SuperRandom.Test
                     Console.WriteLine("Got random number: " + rand);
                     array[rand] += 1;
                 }
-                foreach (var bit in array.Skip(2))
+                foreach (var bit in array)
                 {
                     if (bit > 1)
                     {
