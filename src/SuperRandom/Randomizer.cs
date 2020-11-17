@@ -129,27 +129,27 @@ namespace Anduin.SuperRandom
         public bool TryBreakNumber(int n, out int left, out int right)
         {
             right = left = 0;
-            var factors = new List<int>(3);
+            var factors = new Queue<int>(3);
             for (int i = 2; i * i <= n; ++i)
             {
                 if (n % i == 0)
                 {
                     while (n % i == 0)
                     {
-                        factors.Add(i);
+                        factors.Enqueue(i);
                         n /= i;
-                        if (factors.Count > 3)
+                        if (factors.Count >= 3)
                         {
                             return false;
                         }
                     }
                 }
             }
-            if (n != 1) factors.Add(n);
+            if (n != 1) factors.Enqueue(n);
             if (factors.Count == 2)
             {
-                left = factors[0];
-                right = factors[1];
+                left = factors.Dequeue();
+                right = factors.Dequeue();
                 return true;
             }
             return false;
