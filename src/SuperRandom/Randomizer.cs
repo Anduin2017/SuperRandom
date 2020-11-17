@@ -26,67 +26,6 @@ namespace Anduin.SuperRandom
             return true;
         }
 
-        long mult_mod(long a, long b, long c)
-        {
-            a %= c;
-            b %= c;
-            long ret = 0;
-            while (b > 0)
-            {
-                if ((b & 1) > 0) { ret += a; ret %= c; }
-                a <<= 1;
-                if (a >= c) a %= c;
-                b >>= 1;
-            }
-            return ret;
-        }
-
-
-        long pow_mod(long x, long n, long mod)//x^n%c
-        {
-            if (n == 1) return x % mod;
-            x %= mod;
-            long tmp = x;
-            long ret = 1;
-            while (n > 0)
-            {
-                if ((n & 1) > 0) ret = mult_mod(ret, tmp, mod);
-                tmp = mult_mod(tmp, tmp, mod);
-                n >>= 1;
-            }
-            return ret;
-        }
-        bool check(long a, long n, long x, long t)
-        {
-            long ret = pow_mod(a, x, n);
-            long last = ret;
-            for (int i = 1; i <= t; i++)
-            {
-                ret = mult_mod(ret, ret, n);
-                if (ret == 1 && last != 1 && last != n - 1) return true;//合数
-                last = ret;
-            }
-            if (ret != 1) return true;
-            return false;
-        }
-
-        public bool IsPrime2(long n)
-        {
-            if (n < 2) return false;
-            if (n == 2) return true;
-            if ((n & 1) == 0) return false;
-            long x = n - 1;
-            long t = 0;
-            while ((x & 1) == 0) { x >>= 1; t++; }
-            for (int i = 0; i < S; i++)
-            {
-                long a = rand.Next(1, int.MaxValue) % (n - 1) + 1;
-                if (check(a, n, x, t))
-                    return false;//合数
-            }
-            return true;
-        }
-
         /// <summary>
         /// Returns all prime numbers by sequence. Exmaple: 2, 3, 5, 7, 11, 13...
         /// </summary>
