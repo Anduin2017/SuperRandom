@@ -2,8 +2,6 @@
 
 [![NuGet version (Newtonsoft.Json)](https://img.shields.io/nuget/v/Anduin.SuperRandom.svg?style=flat-square)](https://www.nuget.org/packages/Anduin.SuperRandom/)
 
-[中文](./README.zh.md)
-
 Non-repeating random numbers.
 
 ## How to install
