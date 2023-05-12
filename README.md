@@ -17,7 +17,7 @@ PM > Install-Package Anduin.SuperRandom
 Others:
 
 ```bash
-$ > dotnet add package Anduin.SuperRandom
+dotnet add package Anduin.SuperRandom
 ```
 
 ## Why do I need this
