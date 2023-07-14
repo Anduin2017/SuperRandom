@@ -1,9 +1,23 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-	  
-  <OutputType>Library</OutputType>
+    <!--Build and code-->
+    <OutputType>Library</OutputType>
+    <Version>6.0.0</Version>
     <TargetFramework>net6.0</TargetFramework>
-    </PropertyGroup>
-
+    <!--Best practice-->
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <!--Nuget-->
+    <Company>Anduin</Company>
+    <Product>SuperRandom</Product>
+    <Authors>anduin2017</Authors>
+    <Description>A tool for generating random numbers.</Description>
+    <PackageTags>cli nuget dotnet csproj random numbers RSA</PackageTags>
+    <RepositoryType>git</RepositoryType>
+    <RepositoryUrl>https://gitlab.aiursoft.cn/anduin/superrandom</RepositoryUrl>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageProjectUrl>https://gitlab.aiursoft.cn/anduin/superrandom</PackageProjectUrl>
+  </PropertyGroup>
+    
 </Project>
