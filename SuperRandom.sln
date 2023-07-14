@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.30011.22
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Anduin.SuperRandom", "src\SuperRandom\Anduin.SuperRandom.csproj", "{18D9F5ED-D36F-46DD-BBB8-D5A12FAEF38E}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Anduin.SuperRandom.Test", "src\SuperRandom.Test\Anduin.SuperRandom.Test.csproj", "{ACAD57D3-326C-4544-A769-A25D6B4D6207}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Anduin.SuperRandom.Test", "tests\SuperRandom.Test\Anduin.SuperRandom.Test.csproj", "{4CDE8943-F7BD-4B96-86E2-A990A5FEBA20}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +17,10 @@ Global
 		{18D9F5ED-D36F-46DD-BBB8-D5A12FAEF38E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{18D9F5ED-D36F-46DD-BBB8-D5A12FAEF38E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{18D9F5ED-D36F-46DD-BBB8-D5A12FAEF38E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{ACAD57D3-326C-4544-A769-A25D6B4D6207}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{ACAD57D3-326C-4544-A769-A25D6B4D6207}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{ACAD57D3-326C-4544-A769-A25D6B4D6207}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{ACAD57D3-326C-4544-A769-A25D6B4D6207}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4CDE8943-F7BD-4B96-86E2-A990A5FEBA20}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4CDE8943-F7BD-4B96-86E2-A990A5FEBA20}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4CDE8943-F7BD-4B96-86E2-A990A5FEBA20}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4CDE8943-F7BD-4B96-86E2-A990A5FEBA20}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

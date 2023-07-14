@@ -1,16 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net.Mail;
 using System.Numerics;
-using System.Runtime.InteropServices.ComTypes;
 
 namespace Anduin.SuperRandom
 {
     public class Randomizer
     {
-        private static Random rand = new Random();
-        const int S = 7;
         /// <summary>
         /// Returns if a number is prime.
         /// </summary>
@@ -34,7 +30,7 @@ namespace Anduin.SuperRandom
         {
             yield return 2;
 
-            for (int i = 3; true; i += 2)
+            for (int i = 3;; i += 2)
             {
                 var startTime = DateTime.UtcNow;
                 if (IsPrime(i))
@@ -44,6 +40,7 @@ namespace Anduin.SuperRandom
                     Console.WriteLine($"Yield returned a number: {i}. Costs time: [{endTime - startTime}]");
                 }
             }
+            // ReSharper disable once IteratorNeverReturns
         }
 
         /// <summary>
@@ -52,10 +49,11 @@ namespace Anduin.SuperRandom
         /// <returns>All natural numbers by sequence</returns>
         private IEnumerable<int> GetNaturalNumbers()
         {
-            for (int i = 0; true; i++)
+            for (int i = 0;; i++)
             {
                 yield return i;
             }
+            // ReSharper disable once IteratorNeverReturns
         }
 
         /// <summary>
@@ -206,7 +204,7 @@ namespace Anduin.SuperRandom
         public IEnumerable<int> GetRandomNumbers(int max)
         {
             int n, d;
-            for (n = max + 2; !TryGetRSAParameters(n, out int p, out int q, out d, out int e); n++)
+            for (n = max + 2; !TryGetRSAParameters(n, out int _, out int __, out d, out int ___); n++)
             {
             }
             return GetRandomNumbersRaw(n, d)

@@ -1,22 +1,11 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace Anduin.SuperRandom.Test
 {
     [TestClass]
     public class MyTest
     {
-        private Randomizer _tester;
-
-        [TestInitialize]
-        public void Init()
-        {
-            _tester = new Randomizer();
-        }
-
+        private readonly Randomizer _tester = new Randomizer();
 
         [TestMethod]
         public void Primes()
@@ -33,7 +22,7 @@ namespace Anduin.SuperRandom.Test
         [TestMethod]
         public void Break11Fail()
         {
-            var success = _tester.TryBreakNumber(11, out int p, out int q);
+            var success = _tester.TryBreakNumber(11, out int _, out int __);
             Assert.IsFalse(success);
         }
 
@@ -49,7 +38,7 @@ namespace Anduin.SuperRandom.Test
         [TestMethod]
         public void Break2131Success()
         {
-            var success = _tester.TryBreakNumber(2131, out int p, out int q);
+            var success = _tester.TryBreakNumber(2131, out int _, out int __);
             Assert.IsFalse(success);
         }
 
