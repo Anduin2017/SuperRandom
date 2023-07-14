@@ -1,20 +1,15 @@
 # SuperRandom
 
-[![NuGet version (Newtonsoft.Json)](https://img.shields.io/nuget/v/Anduin.SuperRandom.svg?style=flat-square)](https://www.nuget.org/packages/Anduin.SuperRandom/)
+[![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](https://gitlab.aiursoft.cn/aiursoft/superrandom/-/blob/master/LICENSE)
+[![Pipeline stat](https://gitlab.aiursoft.cn/anduin/superrandom/badges/master/pipeline.svg)](https://gitlab.aiursoft.cn/aiursoft/superrandom/-/pipelines)
+[![Test Coverage](https://gitlab.aiursoft.cn/anduin/superrandom/badges/master/coverage.svg)](https://gitlab.aiursoft.cn/aiursoft/superrandom/-/pipelines)
+[![NuGet version (Anduin.SuperRandom)](https://img.shields.io/nuget/v/Anduin.SuperRandom.svg)](https://www.nuget.org/packages/Anduin.SuperRandom/)
 
 Non-repeating random numbers.
 
 ## How to install
 
-This project is built based on .NET Standard 2.1.
-
-Powershell:
-
-```powershell
-PM > Install-Package Anduin.SuperRandom
-```
-
-Others:
+This project is built based on .NET 6.
 
 ```bash
 dotnet add package Anduin.SuperRandom
