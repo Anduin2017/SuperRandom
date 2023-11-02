@@ -1,24 +1,28 @@
 <Project Sdk="Microsoft.NET.Sdk">
-    <PropertyGroup>
-        <OutputType>Library</OutputType>
-        <Version>7.0.0</Version>
-        <TargetFramework>net7.0</TargetFramework>
-        <AssemblyName>Anduin.SuperRandom</AssemblyName>
-        <RootNamespace>Anduin.SuperRandom</RootNamespace>
-        <IsTestProject>false</IsTestProject>
-        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-        <IsPackable>true</IsPackable>
-        <ImplicitUsings>enable</ImplicitUsings>
-        <Nullable>enable</Nullable>
-        <Company>Anduin</Company>
-        <Product>SuperRandom</Product>
-        <Authors>anduin2017</Authors>
-        <Description>A tool for generating random numbers.</Description>
-        <PackageId>Anduin.SuperRandom</PackageId>
-        <PackageTags>cli nuget dotnet csproj random numbers RSA</PackageTags>
-        <PackageLicenseExpression>MIT</PackageLicenseExpression>
-        <PackageProjectUrl>https://gitlab.aiursoft.cn/anduin/superrandom</PackageProjectUrl>
-        <RepositoryType>git</RepositoryType>
-        <RepositoryUrl>https://gitlab.aiursoft.cn/anduin/superrandom</RepositoryUrl>
-    </PropertyGroup>
+  <PropertyGroup>
+    <OutputType>Library</OutputType>
+    <Version>7.0.1</Version>
+    <TargetFramework>net7.0</TargetFramework>
+    <AssemblyName>Anduin.SuperRandom</AssemblyName>
+    <RootNamespace>Anduin.SuperRandom</RootNamespace>
+    <IsTestProject>false</IsTestProject>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <IsPackable>true</IsPackable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <Company>Anduin</Company>
+    <Product>SuperRandom</Product>
+    <Authors>anduin2017</Authors>
+    <Description>A tool for generating random numbers.</Description>
+    <PackageId>Anduin.SuperRandom</PackageId>
+    <PackageTags>cli nuget dotnet csproj random numbers RSA</PackageTags>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageProjectUrl>https://gitlab.aiursoft.cn/anduin/superrandom</PackageProjectUrl>
+    <RepositoryType>git</RepositoryType>
+    <RepositoryUrl>https://gitlab.aiursoft.cn/anduin/superrandom</RepositoryUrl>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Include="../../README.md" Pack="true" PackagePath="." />
+  </ItemGroup>
 </Project>
