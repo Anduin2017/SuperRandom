@@ -155,7 +155,7 @@ namespace Anduin.SuperRandom
         /// <param name="d"></param>
         /// <param name="e"></param>
         /// <returns></returns>
-        public bool TryGetRSAParameters(int n, out int p, out int q, out int d, out int e)
+        public bool TryGetRsaParameters(int n, out int p, out int q, out int d, out int e)
         {
             p = 0;
             q = 0;
@@ -201,7 +201,7 @@ namespace Anduin.SuperRandom
         public IEnumerable<int> GetRandomNumbers(int max)
         {
             int n, d;
-            for (n = max + 2; !TryGetRSAParameters(n, out int _, out int __, out d, out int ___); n++)
+            for (n = max + 2; !TryGetRsaParameters(n, out int _, out int __, out d, out int ___); n++)
             {
             }
             return GetRandomNumbersRaw(n, d)
