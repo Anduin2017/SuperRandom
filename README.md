@@ -1,10 +1,10 @@
 # SuperRandom
 
-[![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](https://gitlab.aiursoft.cn/anduin/superrandom/-/blob/master/LICENSE)
-[![Pipeline stat](https://gitlab.aiursoft.cn/anduin/superrandom/badges/master/pipeline.svg)](https://gitlab.aiursoft.cn/anduin/superrandom/-/pipelines)
-[![Test Coverage](https://gitlab.aiursoft.cn/anduin/superrandom/badges/master/coverage.svg)](https://gitlab.aiursoft.cn/anduin/superrandom/-/pipelines)
+[![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](https://gitlab.aiursoft.com/anduin/superrandom/-/blob/master/LICENSE)
+[![Pipeline stat](https://gitlab.aiursoft.com/anduin/superrandom/badges/master/pipeline.svg)](https://gitlab.aiursoft.com/anduin/superrandom/-/pipelines)
+[![Test Coverage](https://gitlab.aiursoft.com/anduin/superrandom/badges/master/coverage.svg)](https://gitlab.aiursoft.com/anduin/superrandom/-/pipelines)
 [![NuGet version (Anduin.SuperRandom)](https://img.shields.io/nuget/v/Anduin.SuperRandom.svg)](https://www.nuget.org/packages/Anduin.SuperRandom/)
-[![ManHours](https://manhours.aiursoft.cn/r/gitlab.aiursoft.cn/anduin/SuperRandom.svg)](https://gitlab.aiursoft.cn/anduin/SuperRandom/-/commits/master?ref_type=heads)
+[![ManHours](https://manhours.aiursoft.cn/r/gitlab.aiursoft.com/anduin/SuperRandom.svg)](https://gitlab.aiursoft.com/anduin/SuperRandom/-/commits/master?ref_type=heads)
 
 Non-repeating random numbers.
 

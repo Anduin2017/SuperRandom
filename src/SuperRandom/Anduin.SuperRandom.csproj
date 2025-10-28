@@ -17,9 +17,9 @@
     <PackageId>Anduin.SuperRandom</PackageId>
     <PackageTags>cli nuget dotnet csproj random numbers RSA</PackageTags>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <PackageProjectUrl>https://gitlab.aiursoft.cn/anduin/superrandom</PackageProjectUrl>
+    <PackageProjectUrl>https://gitlab.aiursoft.com/anduin/superrandom</PackageProjectUrl>
     <RepositoryType>git</RepositoryType>
-    <RepositoryUrl>https://gitlab.aiursoft.cn/anduin/superrandom</RepositoryUrl>
+    <RepositoryUrl>https://gitlab.aiursoft.com/anduin/superrandom</RepositoryUrl>
     <PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
   <ItemGroup>
