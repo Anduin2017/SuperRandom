@@ -4,7 +4,7 @@
 [![Pipeline stat](https://gitlab.aiursoft.com/anduin/superrandom/badges/master/pipeline.svg)](https://gitlab.aiursoft.com/anduin/superrandom/-/pipelines)
 [![Test Coverage](https://gitlab.aiursoft.com/anduin/superrandom/badges/master/coverage.svg)](https://gitlab.aiursoft.com/anduin/superrandom/-/pipelines)
 [![NuGet version (Anduin.SuperRandom)](https://img.shields.io/nuget/v/Anduin.SuperRandom.svg)](https://www.nuget.org/packages/Anduin.SuperRandom/)
-[![ManHours](https://manhours.aiursoft.cn/r/gitlab.aiursoft.com/anduin/SuperRandom.svg)](https://gitlab.aiursoft.com/anduin/SuperRandom/-/commits/master?ref_type=heads)
+[![ManHours](https://manhours.aiursoft.com/r/gitlab.aiursoft.com/anduin/SuperRandom.svg)](https://gitlab.aiursoft.com/anduin/SuperRandom/-/commits/master?ref_type=heads)
 
 Non-repeating random numbers.
 
