@@ -1,7 +1,8 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿
 
 namespace Anduin.SuperRandom.Test
 {
+
     [TestClass]
     public class MyTest
     {
@@ -12,11 +13,11 @@ namespace Anduin.SuperRandom.Test
         {
             var primes = _tester.PrimeNumbers().Take(5).ToArray();
 
-            Assert.AreEqual(primes[0], 2);
-            Assert.AreEqual(primes[1], 3);
-            Assert.AreEqual(primes[2], 5);
-            Assert.AreEqual(primes[3], 7);
-            Assert.AreEqual(primes[4], 11);
+            Assert.AreEqual(2, primes[0]);
+            Assert.AreEqual(3, primes[1]);
+            Assert.AreEqual(5, primes[2]);
+            Assert.AreEqual(7, primes[3]);
+            Assert.AreEqual(11, primes[4]);
         }
 
         [TestMethod]
@@ -31,8 +32,8 @@ namespace Anduin.SuperRandom.Test
         {
             var success = _tester.TryBreakNumber(121, out int p, out int q);
             Assert.IsTrue(success);
-            Assert.AreEqual(p, 11);
-            Assert.AreEqual(q, 11);
+            Assert.AreEqual(11, p);
+            Assert.AreEqual(11, q);
         }
 
         [TestMethod]
