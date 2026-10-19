@@ -1,10 +1,10 @@
 # SuperRandom
 
-[![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](https://gitlab.aiursoft.com/anduin/superrandom/-/blob/master/LICENSE)
+[![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/Anduin2017/SuperRandom/blob/master/LICENSE)
 [![Pipeline stat](https://gitlab.aiursoft.com/anduin/superrandom/badges/master/pipeline.svg)](https://gitlab.aiursoft.com/anduin/superrandom/-/pipelines)
 [![Test Coverage](https://gitlab.aiursoft.com/anduin/superrandom/badges/master/coverage.svg)](https://gitlab.aiursoft.com/anduin/superrandom/-/pipelines)
 [![NuGet version (Anduin.SuperRandom)](https://img.shields.io/nuget/v/Anduin.SuperRandom.svg)](https://www.nuget.org/packages/Anduin.SuperRandom/)
-[![ManHours](https://manhours.aiursoft.com/r/gitlab.aiursoft.com/anduin/SuperRandom.svg)](https://gitlab.aiursoft.com/anduin/SuperRandom/-/commits/master?ref_type=heads)
+[![ManHours](https://manhours.aiursoft.com/r/github.com/Anduin2017/SuperRandom.svg)](https://github.com/Anduin2017/SuperRandom/commits/master)
 
 Non-repeating random numbers.
 
